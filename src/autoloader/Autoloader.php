@@ -6,7 +6,7 @@ class Autoloader{
             spl_autoload_register('__autoload');
             return;
         }
-        if(version_compare(PHP_VERSION, '5.3.0')  >= 0){
+        if(version_compare(PHP_VERSION, '5.3.0') >= 0){
             spl_autoload_register(array('Autoloader', 'cargar'), true, true);
         }else{
             spl_autoload_register(array('Autoloader', 'cargar'));
@@ -32,8 +32,8 @@ class Autoloader{
                     require_once $rutaArchivo;
                     return true;
                 }
-            }else if($archivo != '.' && $archivo != '..'){
-                return self::buscarArchivo($rutaArchivo, $nobreArchivo);
+            }elseif($archivo != '.' && $archivo != '..'){
+                self::buscarArchivo($rutaArchivo, $nobreArchivo);
                 //return;
             }
         }
